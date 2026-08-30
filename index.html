@@ -9,7 +9,186 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <button id="btn">Click me</button>
-    <button id="log">log in</button>
+    <!-- Створіть картку користувача, яка містить:
+аватар;
+ім'я та прізвище;
+username;
+дату народження;
+професію;
+короткий опис;
+email та номер телефону;
+кнопку з іконкою ❤️;
+кнопку «Підписатися»;
+кнопку «Показати контакти»;
+список посилань: Профіль, Публікації, Проєкти.
+Самостійно підберіть HTML-структуру та стилізуйте картку за допомогою CSS. -->
+
+    <article class="user-card">
+      <header class="user-card-header">
+        <div class="user-card-header-img-container">
+          <img
+            data-bind="userBanner"
+            src="https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg"
+            alt="user banner"
+            class="user-card-header-img"
+          />
+        </div>
+        <div class="user-card-header-userPhoto-container">
+          <img
+            data-bind="userPhoto"
+            src="https://i.pinimg.com/736x/b3/a6/fc/b3a6fc241de39a360c0d92d4724b8535.jpg"
+            alt=" user profile photo"
+            class="user-card-header-userPhoto"
+          />
+          <div data-bind="isUserOnline" class="is-User-Online"></div>
+        </div>
+      </header>
+      <section class="user-card-data-container">
+        <div class="user-card-mainData">
+          <ul data-bind="sections" id="sections" class="user-card-sections">
+            <li class="user-card-sections-item">
+              <a
+                data-section="profileSectionLink"
+                class="user-card-sections-item-link section-active"
+                href="#"
+                >profile</a
+              >
+            </li>
+            <li class="user-card-sections-item">
+              <a
+                data-section="publicationsSectionLink"
+                class="user-card-sections-item-link"
+                href="#"
+                >publications</a
+              >
+            </li>
+            <li class="user-card-sections-item">
+              <a
+                data-section="projectsSectionLink"
+                class="user-card-sections-item-link"
+                href="#"
+                >projects</a
+              >
+            </li>
+          </ul>
+          <!-- <br /> -->
+          <div class="user-card-userInformain">
+            <h2 data-bind="userName" class="user-card-userInformain-fullname">
+              User name
+            </h2>
+            <p data-bind="userNick" class="user-card-userInformain-nickName">
+              @somenick
+            </p>
+            <p
+              data-bind="userShortInformation"
+              class="user-card-userInformain-describtion"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+              facilis fugit! Dolore reprehenderit cupiditate rerum repellendus
+              ipsum, placeat aliquid sequi Lorem30.
+            </p>
+            <p
+              data-bind="userLocation"
+              class="user-card-userInformain-userLocation"
+            >
+              some location
+            </p>
+          </div>
+          <div class="user-card-LikesANdSubscribe">
+            <!-- likes container -->
+            <div class="user-card-Likes-container">
+              <button
+                data-bind="likeBtn"
+                id="likeBtn"
+                class="user-card-LikesButton"
+              >
+                <img
+                  data-bind="likeImg"
+                  src="./assets/img/heart.png"
+                  alt="like button img"
+                  class="likesImg"
+                />
+              </button>
+              <p data-bind="likesCount" class="user-card-likes-count">0</p>
+            </div>
+
+            <button
+              data-bind="subscribeBtn"
+              id="subscribeBtn"
+              class="user-card-SubscribeButton"
+            >
+              + Слідкувати
+            </button>
+          </div>
+          <button
+            data-bind="showContactsBtn"
+            id="contactInformationutton"
+            class="user-card-contactInformation-button"
+          >
+            Show Contacts
+          </button>
+        </div>
+
+        <dialog data-bind="alertModal" id="alert-modal">
+          <div class="alert-modal-container">
+            <h3 class="alert-modal-h3">Контакти користувача user</h3>
+            <ul class="alert-modal-contacts">
+              <li class="alert-modal-contacts-item">
+                <a
+                  data-bind="userInformation-Phone"
+                  href="tel:+380991234567"
+                  class="alert-modal-contacts-link"
+                >
+                  <span>📞 +380 (99) 123-45-67</span>
+                </a>
+              </li>
+              <li class="alert-modal-contacts-item">
+                <a
+                  data-bind="userInformation-Email"
+                  href="mailto:user@example.com"
+                  class="alert-modal-contacts-link"
+                >
+                  <span>✉️ user@example.com</span>
+                </a>
+              </li>
+            </ul>
+
+            <h3 class="alert-modal-h3">Дата народження користувача <span data-bind="userBirth-Title">ℹ️</span></h3>
+            <ul class="alert-modal-birthDay">
+              <li class="alert-modal-birthDay-item">
+                <div class="alert-modal-birthDay-link">
+                  <span>📅 День </span>
+                  <strong data-bind="userBirth-Day">01</strong>
+                </div>
+              </li>
+              <li class="alert-modal-birthDay-item">
+                <div class="alert-modal-birthDay-link">
+                  <span>🗓️ Місяць </span>
+                  <strong data-bind="userBirth-Month">Січень</strong>
+                </div>
+              </li>
+              <li class="alert-modal-birthDay-item">
+                <div class="alert-modal-birthDay-link">
+                  <span>🎂 Рік </span>
+                  <strong data-bind="userBirth-Year">2000</strong>
+                </div>
+              </li>
+            </ul>
+            <button
+              data-bind="userInformation-CloseBtn"
+              type="button"
+              id="close-btn"
+            >
+              Зрозуміло
+            </button>
+          </div>
+        </dialog>
+
+        <div class="user-card-console-container">
+          <h2 class="user-log">User logs</h2>
+          <ul data-bind="userLogs" class="user-card-console"></ul>
+        </div>
+      </section>
+    </article>
   </body>
 </html>

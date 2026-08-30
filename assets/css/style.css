@@ -1,0 +1,484 @@
+:root {
+  --primary-color: #2563eb;
+  --success-color: #10b981;
+  --bg-card: #ffffff;
+  --border-color: #e5e7eb;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --console-bg: #0f172a;
+  --radius-main: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Головний контейнер картки */
+.user-card {
+  width: 720px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-main);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  height: 580px;
+  /* max-height: fit-content; */
+}
+
+/* Шапка та Банер */
+.user-card-header {
+  height: 30%;
+  position: relative;
+  background-color: var(--border-color);
+}
+
+.user-card-header-img-container {
+  height: 100%;
+  width: 100%;
+  min-width: 650px;
+  overflow: hidden;
+}
+
+.user-card-header-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Аватарка та статус Online */
+.user-card-header-userPhoto-container {
+  position: absolute;
+  bottom: -40px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--bg-card);
+  padding: 4px;
+}
+
+.user-card-header-userPhoto {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.is-User-Online {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--success-color);
+  border-radius: 50%;
+  border: 2px solid var(--bg-card);
+}
+
+/* Тіло картки */
+.user-card-data-container {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 50px 30px 25px;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  /* min-width: 648px;  */
+  height: 65%;
+  /* height: 510px; */
+}
+
+.user-card-mainData {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* max-height: 250px; */
+  /* max-width: 50%; */
+}
+
+/* Навігаційні секції */
+.user-card-sections {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  list-style: none;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+}
+
+.user-card-sections-item {
+  margin: 0;
+  padding: 0;
+}
+
+.user-card-sections-item-link {
+  display: block;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: capitalize;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: transparent;
+}
+
+.section-active {
+  background-color: var(--console-bg);
+  color: var(--bg-card);
+}
+.user-card-sections-item-link:hover {
+  background-color: var(--console-bg);
+  color: #ffffff;
+  /* border-color: var(--primary-color); */
+}
+
+.user-card-sections-item-link:active {
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.25);
+  transform: translateY(1px); /* легке зміщення вниз підсилює тактильність */
+}
+
+/* Блок текстової інформації */
+.user-card-userInformain {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.user-card-userInformain-fullname {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.user-card-userInformain-nickName {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.user-card-userInformain-describtion {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.user-card-userInformain-userLocation {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Блок кнопок взаємодії */
+.user-card-LikesANdSubscribe {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.user-card-Likes-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+.user-card-Likes-container:hover {
+  background-color: rgb(223, 208, 208);
+  /* cursor: pointer; */
+}
+
+.user-card-LikesButton {
+  background: none;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid var(--border-color); */
+  border-radius: 6px;
+  /* padding: 6px 10px; */
+  cursor: pointer;
+  font-size: 1rem;
+  width: 25px;
+  /* height: 8px; */
+}
+
+.likesImg {
+  height: 100%;
+  width: 100%;
+}
+
+.user-card-likes-count {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.user-card-SubscribeButton {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: auto;
+
+  position: absolute;
+  right: 0px;
+}
+
+.user-card-SubscribEDButton {
+  background-color: var(--bg-card);
+  color: var(--console-bg);
+  border: 2px solid var(--console-bg);
+}
+
+.user-card-SubscribeButton:active {
+  box-shadow: outset 0 3px 6px rgba(0, 0, 0, 0.25);
+  transform: translateY(1px); /* легке зміщення вниз підсилює тактильність */
+}
+
+.user-card-contactInformation-button {
+  background: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+/* //////////////////////////////////////////////////////// */
+/* Модальне вікно (діалог) */
+#alert-modal {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-main);
+  background-color: var(--bg-card);
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* Затемнення та розмиття фону */
+#alert-modal::backdrop {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(1px);
+}
+
+.alert-modal-container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.alert-modal-h3 {
+  color: var(--text-main);
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.alert-modal-contacts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0;
+  margin: 0;
+}
+
+.alert-modal-contacts-item {
+  margin: 0;
+  padding: 0;
+}
+
+/* Оформлення посилання */
+.alert-modal-contacts-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 1px dashed var(--border-color);
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    padding-left 0.15s ease;
+}
+
+.alert-modal-contacts-link:hover {
+  color: #1d4ed8;
+  border-bottom-style: solid;
+  border-bottom-color: var(--primary-color);
+  padding-left: 6px;
+}
+
+.alert-modal-contacts-link:active {
+  color: var(--text-main);
+}
+
+/* Кнопка закриття */
+#close-btn {
+  align-self: flex-end;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+#close-btn:hover {
+  opacity: 0.9;
+}
+
+#close-btn:active {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(1px);
+}
+
+.alert-modal-birthDay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.alert-modal-birthDay-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  text-align: center;
+  padding: 15px 10px;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+
+  position: relative;
+}
+
+.alert-modal-birthDay-link {
+  display: flex;
+  flex-direction: column;
+}
+
+.alert-modal-birthDay-link span {
+  font-size: 0.7rem;
+  min-width: 55px;
+  padding: 3px;
+  color: gray;
+  position: absolute;
+  background-color: white;
+  left: -5px;
+  top: -20%;
+}
+.alert-modal-birthDay-link strong {
+  font-size: 1.2rem;
+  min-width: 70px;
+
+  color: var(--console-bg);
+  font-weight: 600;
+}
+/* ///////////////////////////////////////////////////////// */
+
+.user-card-contactInformation-button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Блок консолі/логів */
+.user-card-console-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  width: 100%;
+  min-width: 300px;
+  height: 100%;
+  /* max-height: 250px; */
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.user-log {
+  background-color: var(--border-color);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.user-card-console {
+  background-color: var(--console-bg);
+  color: var(--success-color);
+  font-family: monospace;
+  font-size: 0.8rem;
+  padding: 10px;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  word-break: break-all;
+}
+
+.user-card-console-item {
+  display: block;
+}
+
+/* Для екранів від 768px і більше (планшети/ПК) */
+@media (width <= 647px) {
+  .user-card {
+    height: 900px;
+  }
+
+  .user-card-header {
+    height: 20%;
+    position: relative;
+    background-color: var(--border-color);
+  }
+
+  .user-card-data-container {
+    display: flex;
+    flex-grow: 1;
+    padding: 50px 30px 25px;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-height: 80%;
+    /* height: 510px; */
+  }
+
+  .user-card-console-container {
+    max-height: 320px;
+  }
+}
