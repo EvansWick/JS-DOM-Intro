@@ -287,10 +287,10 @@ class UserCard {
 
     // 5. Контактні дані у модальному вікні
     if (user._contacts) {
-      if (els["userInformation-Phone"] && user._contacts.phone) {
-        els["userInformation-Phone"].href = `tel:${user._contacts.phone}`;
+      if (els["userInformation-Phone"] && user._contacts.phoneNumber) {
+        els["userInformation-Phone"].href = `tel:${user._contacts.phoneNumber}`;
         els["userInformation-Phone"].querySelector("span").textContent =
-          `📞 ${user._contacts.phone}`;
+          `📞 ${user._contacts.phoneNumber}`;
       }
       if (els["userInformation-Email"] && user._contacts.email) {
         els["userInformation-Email"].href = `mailto:${user._contacts.email}`;
@@ -322,7 +322,7 @@ class UserCard {
     }
 
     // 8 Динамічна генерація title
-    const titleAtr = `Виповнюється в цьому році: ${new Date().getFullYear() - user._dateOfBirth.getFullYear()}`; 
+    const titleAtr = `Виповнюється в цьому році: ${new Date().getFullYear() - user._dateOfBirth.getFullYear()}`;
     // може бути більш точна логіка підрахунку років включаючи місяці
     els["userBirth-Title"].setAttribute("title", titleAtr);
 
@@ -360,14 +360,14 @@ const userEvans = new User(
   "Evans",
   "Wick",
   { city: "Київ", country: "Україна" },
-  { email: "test@mail.com", phoneNumber: "+380993456720" },
+  { email: "test@mail.com", phoneNumber: "+380963456720" },
   "https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg",
   "https://i.pinimg.com/736x/b3/a6/fc/b3a6fc241de39a360c0d92d4724b8535.jpg",
   "EvansWick",
   true,
-  new Date(2005, 4, 31),
+  new Date(2004, 4, 31),
   "Fullstack js developer",
-  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, voluptatibus? Sint officia possimus ab voluptate.",
+  "true man.",
   {
     telegram: "@EvansWick",
     Instagram: "@EwansWick",
@@ -382,7 +382,7 @@ const cardEvans = new UserCard(
   userEvans,
   0,
   0,
-  false,
+  true,
   false,
   false,
   "profileSectionLink",
